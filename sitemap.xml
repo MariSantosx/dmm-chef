@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- TROCAR www.exemplo.com.br pelo domínio real ao publicar -->
+<!-- Ao ligar um domínio próprio, trocar dmm-chef.mari-s-santosx.workers.dev por ele -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.exemplo.com.br/</loc>
+    <loc>https://dmm-chef.mari-s-santosx.workers.dev/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
