@@ -705,3 +705,29 @@ dialog, dialog[open] { box-shadow: 0 30px 90px rgba(0, 0, 0, .75) !important; }
 @media (max-width: 860px) {
   .f-col a { display: flex !important; }
 }
+
+/* ============================================================
+   CELULAR (ajuste): a bandeja não pode ficar por cima do texto
+   - bandeja menor e mais alta, texto compacto na parte de baixo
+   - fundo escuro suave atrás do texto, para ler em qualquer etapa
+   - etiqueta "Hoje já encerramos" menor
+   ============================================================ */
+@media (max-width: 860px) {
+  .dm-art { top: 5.5%; width: min(86vw, 44vh); width: min(86vw, 44svh); }
+  .dm-stamp { top: 9%; }
+  .dm-ch:not(.dm-hero) { bottom: 50px; }
+  .dm-ch:not(.dm-hero)::before {
+    content: ''; position: absolute; z-index: -1; left: -9vw; right: -9vw; top: -46px; bottom: -60px; pointer-events: none;
+    background: linear-gradient(0deg, #0a0908 0%, rgba(10, 9, 8, .97) 60%, rgba(10, 9, 8, 0) 100%);
+  }
+  .dm-ch:not(.dm-hero) .eyebrow { margin-bottom: 6px; }
+  .dm-ch:not(.dm-hero) h2 { font-size: clamp(24px, 7vw, 32px) !important; line-height: 1.06 !important; margin-bottom: 8px !important; }
+  .dm-ch:not(.dm-hero) .dm-lede { font-size: 14px; line-height: 1.45; margin-bottom: 12px; }
+  .dm-protein { gap: 8px; margin-bottom: 2px; }
+  .dm-protein button { font-size: 11px !important; padding: 8px 10px !important; letter-spacing: .06em !important; }
+  .dm-offer { padding: 12px 14px; margin-bottom: 12px; }
+  .dm-offer-top strong { font-size: 24px; }
+  .dm-offer p { font-size: 13px; margin-top: 6px; }
+  .dm-chips { top: 70px; }
+  .dm-chip { font-size: 11px; letter-spacing: .03em; text-transform: none; font-weight: 600; padding: 7px 12px; border-radius: 12px; line-height: 1.3; }
+}
