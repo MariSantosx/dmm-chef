@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Ao ligar um domínio próprio, trocar dmm-chef.dmmchef.workers.dev por ele -->
+<!-- Ao ligar um domínio próprio, trocar dmm-chef.marisantsx.workers.dev por ele -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dmm-chef.dmmchef.workers.dev/</loc>
+    <loc>https://dmm-chef.marisantsx.workers.dev/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

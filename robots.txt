@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # TROCAR pelo domínio real ao publicar
-Sitemap: https://dmm-chef.dmmchef.workers.dev/sitemap.xml
+Sitemap: https://dmm-chef.marisantsx.workers.dev/sitemap.xml
