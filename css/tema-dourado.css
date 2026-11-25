@@ -1,0 +1,707 @@
+/* ============================================================
+   DMM CHEF — tema preto e dourado (cores da logo)
+   Carrega depois de dmm.css e sobrescreve as cores e fontes do template.
+   Para ajustar o visual do site inteiro, comece pelas variáveis do :root.
+   ============================================================ */
+
+:root {
+  --black: #0a0908;
+  --black-2: #11100d;
+  --black-3: #191611;
+  --gold: #c9a14a;      /* dourado principal */
+  --gold-2: #e3c27a;    /* dourado claro (destaques, texto pequeno) */
+  --gold-3: #8f6f2c;    /* dourado escuro */
+  --text: #ece5d6;      /* texto principal (branco quente) */
+  --muted: #a99f8c;     /* texto secundário */
+  --line: rgba(201, 161, 74, .28); /* fio dourado fino */
+
+  /* variáveis do template, remapeadas. Atenção: --ink agora é o TEXTO CLARO e --cream a SUPERFÍCIE ESCURA */
+  --pink: #c9a14a;
+  --hot: #c9a14a;
+  --yellow: #e3c27a;
+  --green: #11100d;
+  --blue: #191611;
+  --cream: #12100d;
+  --ink: #ece5d6;
+
+  --display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+
+  /* grão sutil, em dourado, para o preto não ficar "chapado" */
+  --tex-dark: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .85  0 0 0 0 .68  0 0 0 0 .38  0 0 0 .7 -.3'/></filter><rect width='300' height='300' filter='url(%23f)' opacity='.13'/></svg>");
+}
+
+/* ---------- fundos ---------- */
+html, body { background: var(--black) !important; color: var(--text); }
+body, .content, .ribbons, .content > section.ritual, .content > section.faq-section {
+  background-color: var(--black-2) !important; background-image: var(--tex-dark) !important; color: var(--text);
+}
+#stage {
+  background-color: var(--black) !important;
+  background-image:
+    radial-gradient(55% 70% at 72% 55%, rgba(201, 161, 74, .17), rgba(201, 161, 74, 0) 68%),
+    radial-gradient(circle at 88% 14%, rgba(255, 210, 130, .10), rgba(255, 210, 130, 0) 110px),
+    radial-gradient(circle at 56% 90%, rgba(255, 210, 130, .07), rgba(255, 210, 130, 0) 150px),
+    radial-gradient(45% 55% at 8% 100%, rgba(143, 111, 44, .16), rgba(143, 111, 44, 0) 70%),
+    var(--tex-dark) !important;
+}
+.manifesto { background-color: var(--black-3) !important; background-image: var(--tex-dark) !important; border-block: 1px solid var(--line) !important; }
+.method-section { background-color: #0e0c0a !important; background-image: linear-gradient(180deg, rgba(201, 161, 74, .08), rgba(201, 161, 74, 0) 45%), var(--tex-dark) !important; }
+.collection { background-color: var(--black) !important; background-image: radial-gradient(80% 70% at 50% 0%, rgba(201, 161, 74, .12), rgba(201, 161, 74, 0) 70%), var(--tex-dark) !important; color: var(--text); }
+.menu-section { background-color: var(--black) !important; background-image: var(--tex-dark) !important; border-block: 1px solid var(--line) !important; color: var(--text); }
+.closing { background-color: #0c0a08 !important; background-image: radial-gradient(75% 95% at 50% 0%, rgba(201, 161, 74, .32), rgba(201, 161, 74, 0) 65%), var(--tex-dark) !important; border-block: 1px solid var(--line) !important; color: var(--text); }
+footer { background-color: #070605 !important; background-image: var(--tex-dark) !important; color: var(--text); }
+
+/* faixas rolantes: preto com fio dourado, e uma faixa dourada */
+.ticker { background: var(--black) !important; color: var(--gold) !important; border-block: 1px solid var(--line) !important; }
+.ribbons .ticker-b { background: var(--gold) !important; color: var(--black) !important; border-color: var(--gold) !important; }
+.ticker span { font-family: var(--display); font-style: italic; font-weight: 500; font-size: 24px; letter-spacing: .02em; }
+.ticker b { color: inherit; opacity: .7; }
+
+/* ---------- tipografia: Playfair Display, caixa-alta, última linha em dourado ---------- */
+h1, h2, h3, h4 { font-family: var(--display) !important; font-weight: 500 !important; font-variation-settings: normal !important; }
+h1, h2 { text-transform: uppercase; letter-spacing: .03em; }
+h1 em, h2 em, h3 em, .flavor-heading em, .manifesto h2 em, .bx h2 em {
+  font-family: var(--display) !important; font-style: normal !important; font-weight: 500 !important;
+  color: var(--gold) !important; letter-spacing: inherit !important; text-shadow: none !important; -webkit-text-stroke: 0 !important;
+}
+.eyebrow { color: var(--gold) !important; font-size: 11px !important; letter-spacing: .3em !important; font-weight: 600; }
+.eyebrow i { background: var(--gold) !important; box-shadow: 0 0 0 4px rgba(201, 161, 74, .18) !important; }
+.tiny-label { color: var(--gold-2); letter-spacing: .2em; }
+p, li { color: inherit; }
+.section-heading > p, .menu-note, .f-small, small { color: var(--muted); }
+
+/* ---------- cabeçalho e marca ---------- */
+#header { background: linear-gradient(180deg, rgba(10, 9, 8, .94), rgba(10, 9, 8, .72)) !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(201, 161, 74, .18) !important; box-shadow: none !important; }
+#header nav { background: none !important; border: 0 !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; gap: 6px; }
+#header nav a { text-transform: uppercase; letter-spacing: .16em; font-size: 11px; font-weight: 600; color: var(--text); border-radius: 0 !important; background: none !important; }
+#header nav a:hover { color: var(--gold) !important; background: none !important; }
+#header nav a[aria-current=true] { background: none !important; color: var(--gold) !important; box-shadow: inset 0 -1px 0 var(--gold); }
+.brand strong { font-family: var(--display) !important; font-weight: 600; font-size: 34px; letter-spacing: .14em; transform: none !important; color: var(--gold) !important; line-height: 1; }
+.brand span { letter-spacing: .34em; font-size: 8.5px; color: var(--gold-2); font-weight: 600; }
+.f-brand .brand strong { color: var(--gold) !important; font-size: 34px; }
+.footer-wordmark { font-family: var(--display) !important; font-weight: 600; font-style: normal; font-size: 24vw; letter-spacing: .08em; color: rgba(201, 161, 74, .09) !important; line-height: .9; }
+.f-col h4 { font-family: var(--display) !important; font-weight: 500; font-size: 18px; color: var(--gold); letter-spacing: .12em; text-transform: uppercase; }
+.f-col a, .f-col p, .f-info li, .footer-bottom { color: var(--muted); }
+.f-col a:hover { color: var(--gold-2); }
+.f-info b { color: var(--gold); }
+.f-form input { background: transparent; border: 1px solid var(--line); color: var(--text); border-radius: 2px; }
+.f-form button { background: var(--gold); color: var(--black); border-radius: 2px; text-transform: uppercase; letter-spacing: .12em; font-size: 11px; font-weight: 700; }
+
+/* ---------- botões: dourado sólido e contorno dourado, cantos retos ---------- */
+.button { background: var(--gold) !important; color: var(--black) !important; border: 1px solid var(--gold) !important; border-radius: 2px !important; text-transform: uppercase; letter-spacing: .14em; font-size: 12px !important; font-weight: 700 !important; padding: 15px 22px !important; gap: 20px !important; box-shadow: none !important; }
+.button::before, .button::after { display: none !important; }
+.button:hover { background: var(--gold-2) !important; border-color: var(--gold-2) !important; transform: translateY(-2px) !important; }
+.button .arw { border-radius: 2px !important; background: var(--black) !important; color: var(--gold) !important; width: 32px !important; height: 32px !important; }
+.header-button { background: transparent !important; color: var(--gold) !important; border-color: var(--gold) !important; }
+.header-button .arw { display: none !important; }
+.header-button:hover { background: var(--gold) !important; color: var(--black) !important; }
+.hero-ghost { border: 1px solid rgba(201, 161, 74, .6) !important; border-radius: 2px !important; color: var(--gold) !important; background: transparent !important; text-transform: uppercase; letter-spacing: .14em; font-size: 12px !important; min-height: 52px !important; padding: 0 24px !important; }
+.hero-ghost:hover { background: rgba(201, 161, 74, .12) !important; }
+.closing .button { background: var(--gold) !important; color: var(--black) !important; }
+.closing .button .arw { background: var(--black) !important; color: var(--gold) !important; }
+
+/* selos e detalhes do template */
+.round-note { border: 1px solid var(--gold) !important; background: transparent !important; color: var(--gold) !important; font-family: var(--display) !important; font-weight: 500; font-size: 16px; letter-spacing: .1em; line-height: 1.2; }
+.menu-stamp { font-family: var(--display) !important; font-weight: 600; font-size: 22px !important; letter-spacing: .08em; line-height: 1.15 !important; padding: 24px !important; background: transparent !important; color: var(--gold) !important; border: 1px solid var(--gold); box-shadow: none !important; border-radius: 50% !important; aspect-ratio: 1; display: grid; place-items: center; text-align: center; transform: rotate(-6deg) !important; }
+.ritual-visual { border: 1px solid var(--line) !important; border-radius: 2px !important; background: radial-gradient(70% 65% at 50% 45%, #2b2318, #0d0b09) !important; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .8); }
+.ritual-note { font-family: var(--display) !important; font-weight: 500; font-size: 16px !important; letter-spacing: .1em; background: var(--black) !important; color: var(--gold) !important; border: 1px solid var(--gold); border-radius: 2px !important; transform: none !important; }
+.faq-section details { border-color: var(--line) !important; }
+.faq-section details[open] { background: rgba(201, 161, 74, .07) !important; border-radius: 4px !important; }
+.faq-section summary { color: var(--text); }
+.number, .product-number, .box-price strong, .happy-stamp b { font-family: var(--display) !important; font-weight: 500; color: var(--gold); text-shadow: none !important; }
+
+/* cartões "Três passos" */
+.swap-card { background: #17130f !important; color: var(--text) !important; border: 1px solid rgba(201, 161, 74, .4) !important; border-radius: 4px !important; box-shadow: 0 36px 70px -24px rgba(0, 0, 0, .85) !important; }
+.swap-card h3 { font-family: var(--display) !important; font-weight: 500 !important; letter-spacing: .02em; color: var(--text); }
+.swap-card p { color: var(--muted); }
+.swap-card strong { background: var(--gold) !important; color: var(--black) !important; border-radius: 2px !important; letter-spacing: .12em; }
+.swap-chip { background: transparent !important; color: var(--gold) !important; border: 1px solid var(--gold) !important; border-radius: 2px !important; }
+.swap-num { font-family: var(--display) !important; -webkit-text-stroke: 1px var(--gold) !important; color: transparent !important; font-weight: 500; }
+.swap-copy h2 em { color: var(--gold) !important; }
+.swap-legend li { color: var(--text); }
+.swap-legend li.is-on { background: rgba(201, 161, 74, .12) !important; color: var(--gold-2) !important; border-radius: 2px !important; }
+.swap-legend li span { font-family: var(--display) !important; color: var(--gold); opacity: 1; }
+
+/* sala de pratos */
+.flavour-room { background: rgba(19, 17, 14, .88) !important; -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); color: var(--text) !important; border: 1px solid var(--line); border-radius: 4px !important; }
+.room-photo { background: radial-gradient(62% 62% at 50% 52%, rgba(46, 38, 27, .88), rgba(13, 11, 9, .88)) !important; }
+.room-editorial { color: var(--text); }
+.room-selector button { color: var(--text) !important; border-color: var(--line) !important; background: transparent !important; border-radius: 0 !important; }
+.room-selector button[aria-pressed="true"] { background: rgba(201, 161, 74, .14) !important; color: var(--gold-2) !important; border-color: var(--gold) !important; }
+.photo-invitation { background: var(--black) !important; color: var(--gold) !important; border: 1px solid var(--gold); border-radius: 2px !important; }
+.photo-edition { color: var(--gold-2) !important; }
+.room-finish { color: var(--gold-2); }
+.text-link { color: var(--gold) !important; }
+
+/* cardápio */
+.menu h3 { font-family: var(--display) !important; color: var(--gold) !important; letter-spacing: .06em; font-size: 24px; }
+.menu-row { border-color: rgba(201, 161, 74, .22) !important; }
+.menu-row b { color: var(--gold-2); }
+.menu-row small, .menu .menu-sub { color: var(--muted); }
+.menu-table th, .menu-table td { border-bottom: 1px solid rgba(201, 161, 74, .2) !important; }
+.menu-table thead th { color: var(--gold); }
+
+/* janelas (pedido e zoom) */
+dialog { background: #13110e !important; color: var(--text) !important; border: 1px solid var(--gold) !important; border-radius: 4px !important; }
+dialog::backdrop { background: rgba(0, 0, 0, .75) !important; }
+dialog .close { color: var(--gold) !important; }
+.closeup-photo { background: radial-gradient(62% 62% at 50% 52%, #2e261b, #0d0b09) !important; }
+.closeup-pagination button, .zoom-button { color: var(--text) !important; border: 1px solid var(--line) !important; background: transparent !important; border-radius: 2px !important; }
+.closeup-pagination button[aria-pressed="true"] { background: var(--gold) !important; color: var(--black) !important; }
+
+/* ---------- seção da marmita (hero e montagem) ---------- */
+.dm-word { font-family: var(--display) !important; font-weight: 600; font-style: normal; color: var(--gold) !important; opacity: .05 !important; letter-spacing: .06em !important; transform: rotate(0) !important; }
+.dm-ch h1, .dm-ch h2 {
+  font-family: var(--display) !important; font-weight: 500 !important; text-transform: uppercase !important;
+  color: var(--text) !important; -webkit-text-stroke: 0 !important; text-shadow: none !important;
+  line-height: 1.04 !important; letter-spacing: .03em !important; font-variation-settings: normal !important;
+}
+.dm-ch h1 { font-size: clamp(38px, 4.9vw, 82px) !important; }
+.dm-ch h2 { font-size: clamp(32px, 3.9vw, 66px) !important; }
+.dm-ch h1 em, .dm-ch h2 em { font-style: normal !important; font-weight: 500 !important; color: var(--gold) !important; }
+.dm-lede { color: rgba(236, 229, 214, .82); }
+.dm-hero .dm-lede::before { content: ''; display: block; width: 48px; height: 1px; background: var(--gold); margin-bottom: 20px; }
+.dm-offer { background: #14110e !important; border: 1px solid rgba(201, 161, 74, .4) !important; box-shadow: none !important; border-radius: 2px !important; }
+.dm-offer-top { color: var(--text); }
+.dm-offer-top strong { font-family: var(--display) !important; font-weight: 500; color: var(--gold) !important; }
+.dm-protein button { background: transparent !important; color: var(--text) !important; border: 1px solid rgba(201, 161, 74, .45) !important; border-radius: 2px !important; text-transform: uppercase; letter-spacing: .1em; font-size: 11.5px; }
+.dm-protein button i { border-color: var(--gold) !important; }
+.dm-protein button[aria-pressed="true"] { background: var(--gold) !important; color: var(--black) !important; border-color: var(--gold) !important; box-shadow: none !important; }
+.dm-list li { border: 1px solid rgba(201, 161, 74, .35) !important; border-radius: 2px !important; color: var(--text); }
+.dm-list li.on { background: var(--gold) !important; color: var(--black) !important; border-color: var(--gold) !important; }
+.dm-list li b { border-color: currentColor !important; }
+.dm-list li.on b { background: var(--black) !important; color: var(--gold) !important; border-color: var(--black) !important; }
+.dm-count, .dm-skip { color: var(--text); border-color: var(--gold); }
+.dm-nav { border: 1px solid rgba(201, 161, 74, .3) !important; background: rgba(10, 9, 8, .8) !important; border-radius: 2px !important; }
+.dm-nav button { color: var(--text) !important; border-radius: 2px !important; text-transform: uppercase; letter-spacing: .1em; font-size: 10.5px !important; }
+.dm-nav button[aria-current="step"] { background: var(--gold) !important; color: var(--black) !important; }
+.dm-progress { background: rgba(201, 161, 74, .15) !important; }
+.dm-progress i { background: var(--gold) !important; }
+.dm-stamp circle { fill: var(--gold) !important; stroke: var(--black) !important; stroke-width: 1.5 !important; }
+.dm-stamp text { fill: var(--black) !important; }
+.dm-stamp b { font-family: var(--display) !important; font-weight: 600; color: var(--black) !important; }
+.dm-tray image { filter: drop-shadow(0 24px 30px rgba(0, 0, 0, .8)) !important; }
+
+/* prato escuro com fio dourado atrás da marmita: o isopor branco ganha contraste */
+.dm-art::before {
+  content: ""; position: absolute; left: 50%; top: 61%; width: 118%; aspect-ratio: 1; transform: translate(-50%, -50%); z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 30%, #2b241a, #0e0c0a 68%);
+  border: 1px solid rgba(201, 161, 74, .25);
+  box-shadow: 0 0 150px 10px rgba(201, 161, 74, .13), inset 0 0 90px rgba(0, 0, 0, .65);
+}
+
+/* etiqueta de papel preto com impressão dourada (seção de panqueca) */
+.ritual-label {
+  background-color: #14110e !important;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, 0) 45%) !important;
+  color: var(--gold) !important; border-radius: 3px !important; font-family: var(--display) !important; font-weight: 600 !important; letter-spacing: .1em;
+  outline: 1.5px solid var(--gold) !important; outline-offset: -9px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .6), 0 10px 20px rgba(0, 0, 0, .5) !important;
+}
+.ritual-label small { color: var(--gold-2) !important; border-top: 1px solid var(--gold) !important; letter-spacing: .2em !important; }
+
+@media (max-width: 860px) {
+  .dm-ch h1 { font-size: clamp(32px, 9.4vw, 54px) !important; }
+  .dm-ch h2 { font-size: clamp(26px, 7.6vw, 42px) !important; }
+  .dm-art::before { width: 112%; top: 61%; }
+  .brand strong { font-size: 28px; }
+}
+
+/* correções de contraste: textos do template que usavam a cor "creme" (agora escura) ou verde fixo */
+.manifesto .px-f { color: rgba(236, 229, 214, .16); }
+.closing, .closing h2 { color: var(--text) !important; }
+.collection .menu-note, .menu-note { color: var(--muted) !important; opacity: 1; }
+.f-legal a, .f-top { color: var(--muted) !important; opacity: 1; }
+.f-legal a:hover, .f-top:hover { color: var(--gold-2) !important; }
+.footer-bottom { border-color: rgba(201, 161, 74, .2) !important; }
+
+/* janelas: sombra suave em vez da sombra dura do template */
+dialog, dialog[open] { box-shadow: 0 30px 90px rgba(0, 0, 0, .75) !important; }
+
+/* celular: o selo redondo do cardápio some, para não cobrir o título */
+@media (max-width: 860px) { .menu-stamp { display: none !important; } }
+
+/* ============================================================
+   AJUSTES DA CONSULTORIA: cartão "hoje", seções claras, tipografia, tamanhos
+   ============================================================ */
+:root {
+  --tex-paper: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35  0 0 0 0 .26  0 0 0 0 .16  0 0 0 .9 -.28'/></filter><rect width='300' height='300' filter='url(%23f)' opacity='.3'/></svg>");
+}
+
+/* ---------- aberto agora + prato de hoje (hero) ---------- */
+.dm-hoje { margin-top: 26px; max-width: 32em; padding-top: 16px; border-top: 1px solid var(--line); }
+.dm-hoje p { margin: 0; }
+.dm-hoje-status { display: inline-flex; align-items: center; gap: 9px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-2); }
+.dm-hoje-status i { width: 8px; height: 8px; border-radius: 50%; background: #5cc46c; box-shadow: 0 0 0 4px rgba(92, 196, 108, .18); }
+.dm-hoje.fechado .dm-hoje-status i { background: #c9684f; box-shadow: 0 0 0 4px rgba(201, 104, 79, .2); }
+.dm-hoje-prato { margin-top: 8px !important; font-size: 15px; line-height: 1.5; color: var(--text); }
+.dm-hoje-prato b { color: var(--gold-2); font-weight: 700; }
+@media (max-width: 860px) {
+  .dm-hero .dm-lede { display: none; }
+  .dm-hoje { margin-top: 2px; padding-top: 12px; }
+  .dm-hoje-prato { font-size: 14px; }
+}
+
+/* ---------- seções claras (papel): cardápio e dúvidas, para leitura de listas longas ---------- */
+.menu-section {
+  --gold: #86611a; --gold-2: #6f4f12; --text: #2a1a10; --muted: #6a5a46; --ink: #2a1a10; --cream: #2a1a10; --line: rgba(134, 97, 26, .35);
+  background-color: #f1e8d6 !important; background-image: var(--tex-paper) !important; color: var(--text) !important; border-block: 0 !important;
+}
+.content > section.faq-section {
+  --gold: #86611a; --gold-2: #6f4f12; --text: #2a1a10; --muted: #6a5a46; --ink: #2a1a10; --cream: #f1e8d6; --line: rgba(134, 97, 26, .35);
+  background-color: #f1e8d6 !important; background-image: var(--tex-paper) !important; color: var(--text) !important;
+}
+.menu-section .menu-row { border-color: rgba(42, 26, 16, .16) !important; }
+.menu-section .menu-table th, .menu-section .menu-table td { border-bottom: 1px solid rgba(42, 26, 16, .16) !important; }
+.menu-section .menu-stamp { background: #2a1a10 !important; color: #e3c27a !important; border-color: #2a1a10 !important; }
+.faq-section details { border-color: rgba(42, 26, 16, .18) !important; }
+.faq-section summary, .faq-section details p { color: var(--text); }
+.faq-section details[open] { background: rgba(134, 97, 26, .08) !important; }
+.faq-section .eyebrow, .menu-section .eyebrow { color: #86611a !important; }
+
+/* destaque do prato de hoje no cardápio */
+.menu-row.is-today { background: rgba(134, 97, 26, .1); box-shadow: inset 3px 0 0 #86611a; padding-left: 14px !important; }
+.menu-row.is-today b::before { content: 'HOJE'; margin-right: 10px; font: 700 10.5px 'DM Sans', Arial, sans-serif; letter-spacing: .14em; color: #fff; background: #86611a; padding: 3px 7px; border-radius: 2px; vertical-align: 2px; }
+
+/* ---------- tipografia ---------- */
+.content h2 { text-transform: none !important; letter-spacing: .005em !important; }   /* caixa-alta só no topo (história) */
+.menu-row b, .menu-table td, .dm-offer-top strong, #room-price, .box-price strong {     /* preços sempre em sans, com números alinhados */
+  font-family: 'DM Sans', Arial, sans-serif !important; font-weight: 700 !important; font-variant-numeric: lining-nums tabular-nums;
+}
+.menu-section .menu-row b { color: #6f4f12; }
+
+/* ---------- tamanhos mínimos (acessibilidade) ---------- */
+#header nav a { font-size: 12.5px; }
+.eyebrow { font-size: 12px !important; }
+.dm-nav button { font-size: 12px !important; }
+.dm-protein button { font-size: 12.5px; }
+.button, .hero-ghost { font-size: 13px !important; }
+.tiny-label { font-size: 12px; }
+.menu-table thead th { font-size: 12px; }
+.brand span { font-size: 10px; }
+
+/* rodapé: bloco de pedido */
+.f-news .button { margin-top: 14px; }
+.f-col p a { color: var(--gold-2); }
+
+/* celular: os botões do hero ficavam fora da tela (herança do template). Aqui voltam para o fluxo normal */
+@media (max-width: 860px) {
+  .dm-hero .hero-ctas { position: static !important; transform: none !important; opacity: 1 !important; visibility: visible !important; display: flex !important; gap: 10px; flex-wrap: wrap; margin: 4px 0 14px; }
+  .dm-hero .hero-ctas .button, .dm-hero .hero-ctas .hero-ghost { position: static !important; visibility: visible !important; opacity: 1 !important; transform: none !important; min-height: 48px !important; padding: 0 18px !important; }
+  .dm-hero .hero-ctas .button { padding: 0 14px 0 18px !important; gap: 12px !important; }
+  .dm-hero h1 { margin-bottom: 14px !important; }
+}
+@media (max-width: 860px) { .dm-hero .eyebrow { display: none !important; } }
+
+/* ============================================================
+   HERO 2: feijoada em tela cheia, escurecendo do lado do texto
+   ============================================================ */
+.dm-word { display: none !important; }
+.dm-fj { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.fj-stage { position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: max(100%, calc(100svh * 1.7778)); aspect-ratio: 16 / 9; }
+.fj-mesa { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.fj-layer { position: absolute; will-change: transform, opacity; }
+/* foto inteira (tratada) que aparece ao abrir a página; ao rolar ela some e deixa ver os itens saindo */
+.fj-poster { position: absolute; inset: 0; width: 100%; height: 100%; display: block; will-change: opacity; }
+.fj-layer img { display: block; width: 100%; height: 100%; }
+.fj-steam { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.fj-shade {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, #0a0908 0%, rgba(10, 9, 8, .9) 26%, rgba(10, 9, 8, .55) 46%, rgba(10, 9, 8, 0) 70%),
+    linear-gradient(180deg, rgba(10, 9, 8, .65) 0, rgba(10, 9, 8, 0) 24%, rgba(10, 9, 8, 0) 64%, rgba(10, 9, 8, .88) 100%);
+}
+/* os itens chegam à mesa um a um quando a página abre */
+.fj-intro .fj-in { animation: fjIn 1s cubic-bezier(.2, .8, .2, 1) backwards; animation-delay: calc(.2s + var(--i) * .17s); }
+@keyframes fjIn { from { opacity: 0; transform: translateY(-9%) scale(.93); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .fj-intro .fj-in { animation: none; } }
+
+/* texto do hero: limpo, título em duas fontes */
+.dm-ch.dm-hero { left: 7%; width: 46%; max-width: 700px; }
+.dm-ch.dm-hero h1 {
+  font-family: 'DM Sans', Arial, sans-serif !important; font-weight: 700 !important; text-transform: none !important;
+  letter-spacing: -.035em !important; font-size: clamp(46px, 6.2vw, 104px) !important; line-height: .98 !important; color: #f4efe4 !important;
+}
+.dm-ch.dm-hero h1 em { font-family: var(--display) !important; font-style: italic !important; font-weight: 500 !important; letter-spacing: -.01em !important; color: var(--gold) !important; }
+.dm-hero .dm-lede { max-width: 26em; font-size: clamp(15px, 1.25vw, 18px); color: rgba(236, 229, 214, .8); margin-bottom: 30px; }
+.dm-hero .dm-lede::before { display: none !important; }
+
+/* etiquetas no canto superior direito, como na referência */
+.dm-chips { position: absolute; right: 4.5%; top: 104px; z-index: 4; display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; max-width: 62%; transition: opacity .4s; }
+.dm-chip { display: inline-flex; align-items: center; gap: 9px; padding: 9px 15px; border-radius: 999px; background: rgba(14, 12, 10, .55); border: 1px solid rgba(201, 161, 74, .3); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #ece5d6; }
+.dm-chip i { width: 8px; height: 8px; border-radius: 50%; background: #5cc46c; box-shadow: 0 0 0 4px rgba(92, 196, 108, .2); }
+#stage:has(#dm-hoje.fechado) .dm-chip-status i { background: #c9684f; box-shadow: 0 0 0 4px rgba(201, 104, 79, .22); }
+.dm-side { position: absolute; left: 18px; top: 50%; transform: translateY(-50%) rotate(180deg); writing-mode: vertical-rl; z-index: 4; margin: 0; font-size: 12px; letter-spacing: .34em; text-transform: uppercase; color: rgba(236, 229, 214, .5); transition: opacity .4s; }
+
+/* cartão de vidro: prato de hoje */
+.dm-hero .dm-hoje { position: absolute; left: 0; bottom: 96px; max-width: 360px; margin: 0; padding: 16px 18px; border: 1px solid rgba(201, 161, 74, .3); border-radius: 14px; background: rgba(14, 12, 10, .58); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.dm-hoje-label { margin: 0; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-2); font-weight: 700; }
+.dm-hero .dm-hoje-prato { margin-top: 6px !important; font-family: var(--display); font-size: 20px; line-height: 1.25; color: #f4efe4; }
+
+/* fora do hero: tira os detalhes do topo e mostra a marmita */
+.dm-art, .dm-stamp, .dm-nav { transition: opacity .55s; }
+#stage:has(.dm-hero.is-on) .dm-art, #stage:has(.dm-hero.is-on) .dm-stamp, #stage:has(.dm-hero.is-on) .dm-nav { opacity: 0; pointer-events: none; }
+#stage:not(:has(.dm-hero.is-on)) .dm-chips, #stage:not(:has(.dm-hero.is-on)) .dm-side { opacity: 0; visibility: hidden; }
+
+/* menu flutuante arredondado, de vidro */
+#header {
+  top: 14px !important; left: 50% !important; right: auto !important; transform: translateX(-50%) !important;
+  width: min(1180px, calc(100% - 36px)) !important; height: 62px !important; padding: 0 10px 0 22px !important;
+  border-radius: 16px !important; background: rgba(14, 12, 10, .58) !important; border: 1px solid rgba(201, 161, 74, .26) !important;
+  backdrop-filter: blur(16px) saturate(1.1); -webkit-backdrop-filter: blur(16px) saturate(1.1); box-shadow: 0 18px 40px -18px rgba(0, 0, 0, .7) !important;
+}
+
+/* celular */
+@media (max-width: 860px) {
+  #header { top: 8px !important; width: calc(100% - 20px) !important; height: 56px !important; padding: 0 8px 0 16px !important; }
+  .fj-stage { width: 215vw; right: -32vw; top: 56px; transform: none; }
+  .fj-shade { background: linear-gradient(0deg, #0a0908 0%, rgba(10, 9, 8, .94) 36%, rgba(10, 9, 8, .4) 56%, rgba(10, 9, 8, 0) 76%), linear-gradient(180deg, rgba(10, 9, 8, .7) 0, rgba(10, 9, 8, 0) 22%); }
+  .dm-chips { top: 78px; left: 12px; right: 12px; justify-content: flex-start; max-width: none; }
+  .dm-chip:nth-child(2), .dm-side { display: none; }
+  .dm-ch.dm-hero { left: 6%; right: 6%; width: auto; max-width: none; }
+  .dm-ch.dm-hero h1 { font-size: clamp(40px, 12.5vw, 62px) !important; }
+  .dm-hero .dm-hoje { position: static; max-width: none; margin-top: 4px; padding: 12px 14px; }
+  .dm-hero .dm-hoje-prato { font-size: 16px; }
+}
+.dm-side { white-space: nowrap; }
+
+/* ===== botões mais discretos: menores, de cantos levemente arredondados ===== */
+.button { border-radius: 10px !important; font-size: 12px !important; letter-spacing: .12em !important; padding: 10px 11px 10px 18px !important; gap: 14px !important; min-height: 0 !important; }
+.button .arw { width: 26px !important; height: 26px !important; border-radius: 7px !important; }
+.hero-ghost { border-radius: 10px !important; font-size: 12px !important; letter-spacing: .12em !important; min-height: 46px !important; padding: 0 18px !important; }
+.header-button { padding: 10px 16px !important; }
+.dm-hero .hero-ctas { gap: 10px; }
+.dm-hero .hero-ctas .button { min-height: 46px !important; }
+.dm-protein button, .dm-nav, .dm-nav button { border-radius: 8px !important; }
+@media (max-width: 860px) {
+  .dm-hero .hero-ctas .button, .dm-hero .hero-ctas .hero-ghost { min-height: 44px !important; }
+}
+
+/* frase do rodapé do cardápio */
+.menu-eletrico { font-family: var(--display); font-style: italic; font-size: clamp(20px, 2vw, 26px); margin: 28px 0 0; text-align: center; color: #86611a; }
+.menu-section .menu-table td:not(:first-child) { white-space: nowrap; }
+
+/* a cena escurece aos poucos enquanto os itens saem: a mesa vazia fica na penumbra */
+.fj-dim { position: absolute; inset: 0; background: #0a0908; opacity: var(--dim, 0); pointer-events: none; }
+
+/* ============================================================
+   DOBRA 2: marmita à esquerda, texto à direita, sobre a mesma madeira da primeira dobra
+   ============================================================ */
+.fj-shade { opacity: calc(1 - var(--story, 0)); }
+.fj-shade2 {
+  position: absolute; inset: 0; pointer-events: none; opacity: var(--story, 0);
+  background:
+    linear-gradient(270deg, rgba(10, 9, 8, .94) 0, rgba(10, 9, 8, .88) 34%, rgba(10, 9, 8, .62) 45%, rgba(10, 9, 8, .16) 54%, rgba(10, 9, 8, 0) 61%),
+    linear-gradient(180deg, rgba(10, 9, 8, .6) 0, rgba(10, 9, 8, 0) 22%, rgba(10, 9, 8, 0) 70%, rgba(10, 9, 8, .75) 100%);
+}
+.dm-art::before { display: none !important; }
+@media (min-width: 861px) {
+  .dm-art { left: 2.5%; right: auto; }
+  .dm-ch:not(.dm-hero) { left: auto; right: 6%; width: 38%; }
+  .dm-list, .dm-count { left: auto; right: 6%; }
+  .dm-stamp { right: auto; left: 5%; transform: rotate(-10deg); }
+}
+@media (max-width: 860px) {
+  .fj-shade2 { background: linear-gradient(0deg, #0a0908 0%, rgba(10, 9, 8, .95) 34%, rgba(10, 9, 8, .6) 52%, rgba(10, 9, 8, 0) 72%), linear-gradient(180deg, rgba(10, 9, 8, .65) 0, rgba(10, 9, 8, 0) 20%); }
+}
+
+/* ============================================================
+   DOBRA 3 (pratos do dia): a mesma mesa de madeira da primeira dobra
+   ============================================================ */
+.collection .room-pin {
+  background-color: #0a0908;
+  background-image:
+    linear-gradient(180deg, rgba(10, 9, 8, .72) 0, rgba(10, 9, 8, .5) 30%, rgba(10, 9, 8, .6) 70%, rgba(10, 9, 8, .86) 100%),
+    url("../img/feijoada/mesa.webp?v=20261126ze");
+  background-size: cover; background-position: center;
+}
+
+/* ============================================================
+   DOBRA 5 (cardápio): folha de papel apoiada na mesa de madeira
+   ============================================================ */
+.menu-section {
+  background-color: #0a0908 !important;
+  background-image: linear-gradient(rgba(10, 9, 8, .55), rgba(10, 9, 8, .55)), url("../img/feijoada/mesa.webp?v=20261126ze") !important;
+  background-size: cover !important; background-position: center !important;
+  border-radius: 0 !important; padding: 90px 4% !important;
+}
+.menu-section > .section {
+  background-color: #f1e8d6; background-image: var(--tex-paper);
+  max-width: 1120px; margin: 0 auto; box-sizing: border-box;
+  padding: 80px 5% 72px !important; border-radius: 6px;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, .65), 0 2px 0 rgba(255, 255, 255, .25) inset;
+}
+@media (max-width: 860px) {
+  .menu-section { padding: 44px 3% !important; }
+  .menu-section > .section { padding: 44px 5% 40px !important; border-radius: 4px; }
+}
+
+/* ============================================================
+   DOBRA "Do arroz à tampa": preto com luz dourada atrás dos cartões e linhas diagonais finas
+   ============================================================ */
+.method-section {
+  background-color: #0b0a08 !important;
+  background-image:
+    radial-gradient(46% 62% at 72% 52%, rgba(201, 161, 74, .30), rgba(201, 161, 74, 0) 70%),
+    radial-gradient(38% 50% at 6% 100%, rgba(143, 111, 44, .22), rgba(143, 111, 44, 0) 70%),
+    repeating-linear-gradient(115deg, rgba(201, 161, 74, .05) 0 1px, transparent 1px 46px) !important;
+  background-size: auto !important; background-position: 0 0 !important;
+}
+
+/* dobra 3: a luz que muda com o prato é só um charme, bem suave */
+.collection .flavour-room {
+  box-shadow: 0 0 0 1px rgba(255, 250, 240, .06), 0 34px 110px -64px color-mix(in srgb, var(--flavour) 36%, transparent) !important;
+}
+
+/* dobra da panqueca: o mesmo preto com luz dourada (a luz fica atrás da foto) */
+.content > section.ritual {
+  background-color: #0b0a08 !important;
+  background-image:
+    radial-gradient(44% 70% at 26% 52%, rgba(201, 161, 74, .26), rgba(201, 161, 74, 0) 70%),
+    radial-gradient(38% 50% at 96% 100%, rgba(143, 111, 44, .20), rgba(143, 111, 44, 0) 70%),
+    repeating-linear-gradient(115deg, rgba(201, 161, 74, .05) 0 1px, transparent 1px 46px) !important;
+  background-size: auto !important; background-position: 0 0 !important;
+}
+
+/* ícone do Instagram do rodapé: dourado, visível no fundo preto */
+.f-social a { color: var(--gold-2) !important; border-color: rgba(201, 161, 74, .45) !important; }
+.f-social a:hover { background: var(--gold) !important; color: #0a0908 !important; border-color: var(--gold) !important; }
+
+/* ============================================================
+   ÚLTIMA DOBRA: título reto e limpo; as letras caem na saída
+   ============================================================ */
+.closing h2 {
+  transform: none !important; text-shadow: none !important; -webkit-text-stroke: 0 !important; paint-order: normal !important;
+  font-family: var(--display) !important; font-weight: 500 !important; text-transform: uppercase; letter-spacing: .03em !important;
+  font-size: clamp(40px, 6.2vw, 96px) !important; line-height: 1.06 !important; margin: 28px auto 30px !important; max-width: 14em; color: #f4efe4 !important;
+}
+.closing h2 em { color: var(--gold) !important; font-style: normal !important; }
+.closing .eyebrow { margin-bottom: 8px; }
+.px-l { display: inline-block; will-change: transform; }
+@media (max-width: 860px) { .closing h2 { font-size: clamp(32px, 9.2vw, 56px) !important; } }
+
+/* ============================================================
+   DOBRA "Qual vai ser a de hoje?": prato grande, sem caixa, direto sobre a mesa
+   ============================================================ */
+.collection .flavour-room {
+  background: transparent !important; border: 0 !important; box-shadow: none !important;
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important; border-radius: 0 !important;
+  overflow: visible !important;
+}
+@media (min-width: 861px) {
+  .collection .flavour-room { grid-template-columns: 1.5fr 1fr !important; }
+  .collection .room-photo .room-image {
+    transform: translate(var(--photo-x), var(--photo-y)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1.16) translateX(-3%) !important;
+  }
+  .collection .room-editorial { background: linear-gradient(90deg, rgba(10, 9, 8, 0), rgba(10, 9, 8, .7) 18%) !important; padding: 30px 4px 30px 40px !important; }
+}
+.collection .room-photo { background: transparent !important; overflow: visible !important; }
+.collection .room-photo .room-image { filter: drop-shadow(0 34px 44px rgba(0, 0, 0, .7)); }
+.collection .room-finish { flex-wrap: wrap; gap: 6px 18px; }
+.collection .room-finish > span:first-child { white-space: nowrap; }
+@media (max-width: 860px) {
+  .collection .room-editorial { background: linear-gradient(180deg, rgba(10, 9, 8, 0), rgba(10, 9, 8, .7) 14%) !important; }
+}
+
+/* dobra dos pratos: o rótulo "As clássicas da casa" fica acima da marmita (sem cobrir), e o botão "Ver de perto" é menor e translúcido */
+@media (min-width: 861px) {
+  .collection .room-photo .room-image { inset: 40px 0 0 0 !important; height: calc(100% - 40px) !important; transform-origin: 50% 0 !important;
+    transform: translate(var(--photo-x), var(--photo-y)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1.16) translateX(-2%) !important; }
+}
+.collection .photo-edition { top: 20px !important; left: 4px !important; right: 4px !important; }
+.collection .photo-invitation {
+  background: rgba(10, 9, 8, .38) !important; border: 1px solid rgba(201, 161, 74, .45) !important;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  padding: 8px 12px !important; gap: 14px !important; font-size: 10px !important; letter-spacing: .12em !important;
+  left: 4px !important; bottom: 18px !important;
+}
+.collection .photo-invitation b { font-size: 15px !important; }
+.collection .room-photo:hover .photo-invitation { background: rgba(10, 9, 8, .6) !important; }
+
+/* dobra dos pratos: lados invertidos (lista à esquerda, marmita à direita) */
+@media (min-width: 861px) {
+  .collection .flavour-room { grid-template-columns: 1fr 1.5fr !important; }
+  .collection .room-photo { order: 2; }
+  .collection .room-editorial {
+    order: 1;
+    background: linear-gradient(270deg, rgba(10, 9, 8, 0), rgba(10, 9, 8, .7) 18%) !important;
+    padding: 30px 40px 30px 4px !important;
+  }
+  .collection .room-photo .room-image {
+    transform: translate(var(--photo-x), var(--photo-y)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-56px) scale(1.16) translateX(2%) !important;
+  }
+  .collection .photo-edition { left: 4px !important; right: 4px !important; }
+  .collection .photo-invitation { left: auto !important; right: 4px !important; bottom: 36px !important; }
+}
+
+/* ============================================================
+   DOBRA "Um cardápio que muda todo dia": lousa do dia numa moldura de madeira
+   ============================================================ */
+.manifesto.manifesto-lousa {
+  display: flex !important; flex-direction: column; align-items: center; text-align: center; gap: 0 !important;
+  background-color: #0b0a08 !important;
+  background-image: linear-gradient(rgba(10, 9, 8, .55), rgba(10, 9, 8, .6)), url("../img/feijoada/mesa.webp?v=20261126ze") !important;
+  background-size: cover !important; background-position: center !important;
+  padding-block: 96px 80px !important;
+}
+.manifesto-lousa .ml-head { display: block; }
+.manifesto-lousa h2 { font-size: clamp(40px, 5vw, 72px) !important; margin: 0 !important; }
+.manifesto-lousa .round-note { position: absolute !important; right: 6%; top: 84px; }
+.lousa {
+  margin-top: 34px; width: min(780px, 94%); padding: 16px;
+  background: url("../img/feijoada/mesa.webp?v=20261126ze") center / cover; border-radius: 10px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, .7), inset 0 0 0 1px rgba(255, 255, 255, .06);
+}
+.lousa-in {
+  background: radial-gradient(80% 90% at 50% 40%, #25231f, #12110e); border-radius: 6px; padding: 30px 36px 26px;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, .75); text-align: left;
+}
+.lousa .ls { display: flex; align-items: baseline; gap: 12px; padding: 9px 12px; margin: 0 -12px; font: 500 20px/1.25 var(--display); color: #f1ead9; border-radius: 6px; }
+.lousa .ls span { width: 48px; flex: none; font: 700 12px 'DM Sans', Arial, sans-serif; letter-spacing: .2em; color: var(--gold); }
+.lousa .ls i { font-style: normal; }
+.lousa .ls em { flex: 1; min-width: 16px; border-bottom: 2px dotted rgba(236, 229, 214, .3); transform: translateY(-4px); }
+.lousa .ls u { text-decoration: none; color: var(--gold-2); font: 700 15px 'DM Sans', Arial, sans-serif; white-space: nowrap; }
+.lousa .ls.is-today { background: rgba(201, 161, 74, .13); box-shadow: inset 3px 0 0 var(--gold); }
+.lousa .ls.is-today span:not(:empty)::after { content: ' HOJE'; color: var(--gold-2); font-size: 9px; letter-spacing: .12em; }
+.lousa-nota { margin: 16px 0 0; padding-top: 16px; border-top: 1px dashed rgba(236, 229, 214, .22); font-size: 14px; line-height: 1.55; color: rgba(236, 229, 214, .72); }
+.manifesto-lousa .text-link { margin-top: 28px; }
+@media (max-width: 860px) {
+  .manifesto.manifesto-lousa { padding-block: 70px 56px !important; }
+  .manifesto-lousa .round-note { display: none; }
+  .lousa { padding: 10px; width: 100%; }
+  .lousa-in { padding: 20px 18px 18px; }
+  .lousa .ls { font-size: 16px; gap: 8px; margin: 0 -8px; padding: 8px; }
+  .lousa .ls span { width: 36px; font-size: 10px; }
+  .lousa .ls u { font-size: 13px; }
+  .lousa .ls.is-today span::after { display: none; }
+}
+
+/* ============================================================
+   LOUSA + PRATO DO DIA: sem moldura de madeira nem quadro; a lista fica direto na mesa, com um véu suave
+   ============================================================ */
+.manifesto-lousa .lw { display: flex; gap: 40px; align-items: stretch; width: min(1120px, 95%); margin-top: 34px; text-align: left; }
+.manifesto-lousa .lw .lousa {
+  flex: 1.25; width: auto !important; margin-top: 0 !important; padding: 0 !important; background: none !important;
+  box-shadow: none !important; border-radius: 0 !important;
+}
+.manifesto-lousa .lw .lousa-in {
+  background: radial-gradient(75% 90% at 50% 50%, rgba(10, 9, 8, .74), rgba(10, 9, 8, .55) 58%, rgba(10, 9, 8, 0) 100%) !important;
+  box-shadow: none !important; border-radius: 0 !important; padding: 34px 36px 26px !important;
+}
+.hojecard {
+  flex: 1; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; text-align: center;
+  min-height: 520px; padding: 26px 26px 28px; overflow: hidden; border-radius: 14px;
+  border: 1px solid rgba(201, 161, 74, .5);
+  background: radial-gradient(70% 55% at 50% 38%, rgba(201, 161, 74, .26), rgba(201, 161, 74, 0) 72%), rgba(14, 12, 10, .6);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, .55);
+}
+.hojecard img { position: absolute; top: 3%; left: 50%; width: 88%; max-height: 58%; object-fit: contain; transform: translateX(-50%); filter: drop-shadow(0 26px 34px rgba(0, 0, 0, .7)); }
+.hojecard small { position: relative; font: 700 11px 'DM Sans', Arial, sans-serif; letter-spacing: .3em; color: var(--gold); }
+.hojecard b { position: relative; font: 500 clamp(26px, 2.6vw, 36px)/1.1 var(--display); color: #f4efe4; margin: 8px 0 4px; }
+.hojecard > span { position: relative; font: 700 20px 'DM Sans', Arial, sans-serif; color: var(--gold-2); }
+.hojecard em { position: relative; font-style: normal; font-size: 13px; line-height: 1.45; color: rgba(236, 229, 214, .72); margin-top: 6px; max-width: 24em; }
+.hojecard .hc-btn { position: relative; margin-top: 16px; }
+@media (max-width: 860px) {
+  .manifesto-lousa .lw { flex-direction: column; gap: 22px; width: 100%; }
+  .hojecard { min-height: 440px; }
+  .manifesto-lousa .lw .lousa-in { padding: 22px 14px 18px !important; }
+}
+
+/* cartão do prato do dia: uma imagem grande, ou duas (feijoada e bisteca) */
+.hojecard .hc-imgs { position: absolute; left: 5%; right: 5%; top: 3%; height: 60%; }
+.hojecard .hc-imgs img { position: absolute; max-width: none; object-fit: contain; filter: drop-shadow(0 26px 34px rgba(0, 0, 0, .7)); transition: opacity .4s; }
+.hojecard #hc-img { left: 50%; top: 0; width: 100%; height: 100%; transform: translateX(-50%); }
+.hojecard #hc-img2 { display: none; }
+.hojecard.dois #hc-img { left: 0; top: 0; width: 68%; height: 78%; transform: none; }
+.hojecard.dois #hc-img2 { display: block; right: -2%; bottom: 0; width: 52%; height: 46%; }
+.hojecard #hc-img2[hidden] { display: none !important; }
+
+/* fotos do cartão maiores: sem o limite de altura herdado */
+.hojecard .hc-imgs { top: 2%; height: 66%; left: 4%; right: 4%; }
+.hojecard .hc-imgs img { max-height: none !important; }
+.hojecard #hc-img { width: 100%; height: 100%; }
+.hojecard.dois #hc-img { width: 70%; height: 82%; }
+.hojecard.dois #hc-img2 { right: -1%; bottom: 2%; width: 58%; height: 52%; }
+
+.hojecard.dois #hc-img { left: -2%; top: 0; width: 72%; height: 80%; }
+.hojecard.dois #hc-img2 { right: -3%; bottom: -4%; width: 56%; height: 50%; }
+
+.hojecard.dois #hc-img { left: -4%; top: -2%; width: 66%; height: 76%; }
+.hojecard.dois #hc-img2 { right: -5%; bottom: -8%; width: 52%; height: 46%; }
+
+.hojecard .hc-imgs { top: 1%; height: 70%; left: 2%; right: 2%; }
+.hojecard.dois #hc-img { left: -3%; top: -2%; width: 80%; height: 88%; }
+.hojecard.dois #hc-img2 { right: -4%; bottom: -4%; width: 62%; height: 54%; }
+
+.hojecard.dois #hc-img { left: 2%; top: -1%; width: 76%; height: 86%; }
+
+/* cartão do prato do dia: uma foto por vez e a setinha "Ver outra opção" */
+.hojecard .hc-imgs { top: 2%; height: 68%; left: 4%; right: 4%; }
+.hojecard #hc-img { left: 50%; top: 0; width: 100%; height: 100%; transform: translateX(-50%); transition: opacity .17s; }
+.hojecard.trocando #hc-img, .hojecard.trocando small, .hojecard.trocando b, .hojecard.trocando > span, .hojecard.trocando em { opacity: 0; }
+.hojecard small, .hojecard b, .hojecard > span, .hojecard em { transition: opacity .17s; }
+.hc-troca {
+  position: absolute; z-index: 3; top: 14px; right: 14px; display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 11px; border-radius: 999px; border: 1px solid rgba(201, 161, 74, .45); background: rgba(10, 9, 8, .45);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  font: 700 10px 'DM Sans', Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-2); cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.hc-troca[hidden] { display: none; }
+.hc-troca:hover { background: rgba(10, 9, 8, .7); border-color: var(--gold); }
+.hc-troca > span { font-size: 13px; line-height: 1; }
+.hc-troca small { font-size: 9px; letter-spacing: .08em; color: rgba(236, 229, 214, .55); }
+
+.hojecard .hc-imgs { top: 5%; height: 60%; }
+.hojecard b { font-size: clamp(24px, 2.3vw, 32px) !important; }
+
+.hojecard { min-height: 590px !important; }
+.hojecard .hc-imgs { top: 5%; height: 56%; }
+@media (max-width: 860px) { .hojecard { min-height: 520px !important; } }
+
+/* ============================================================
+   CELULAR: textos e botões maiores, cartão do prato do dia primeiro, marmita da história mais perto do texto
+   ============================================================ */
+@media (max-width: 860px) {
+  /* cartões do "Do arroz à tampa": texto legível */
+  .swap-card { --w: min(480px, 88vw); height: calc(var(--w) * .98); margin: calc(var(--w) * -.49) 0 0 calc(var(--w) * -.5); }
+  .swap-card h3 { font-size: 26px; max-width: 64%; }
+  .swap-card p { font-size: 13.5px; line-height: 1.5; max-width: 62%; }
+  .swap-card strong { font-size: 11px; max-width: 64%; padding: 9px 12px; }
+  .swap-stage { height: calc(min(480px, 88vw) * .98 + 120px); }
+  /* alvos de toque de pelo menos 44 px */
+  .hc-troca { min-height: 44px; padding: 0 16px; }
+  .f-col a, .f-legal a, .f-top, .text-link { display: inline-flex; align-items: center; min-height: 44px; }
+  .f-col a { padding: 0 !important; }
+  /* "Um cardápio que muda todo dia": o prato de hoje vem antes da lista */
+  .manifesto-lousa .lw { flex-direction: column-reverse; }
+  /* história: a bandeja desce um pouco, mais perto do texto */
+  .dm-art { top: 9%; width: min(98vw, 56vh); }
+  .dm-stamp { top: 11%; }
+}
+
+/* celular: os cartões ficam centralizados, com folga nas duas pontas (nada grudado na borda) */
+@media (max-width: 860px) {
+  .swap-stack { left: 47% !important; top: 58% !important; }
+  .swap-card { --w: min(480px, 78vw); }
+  .swap-stage { height: calc(min(480px, 78vw) * .98 + 130px); }
+}
+
+@media (max-width: 860px) {
+  .swap-stack { left: 43.5% !important; }
+  .swap-card { --w: min(480px, 76vw); }
+  .swap-stage { height: calc(min(480px, 76vw) * .98 + 130px); }
+}
+
+@media (max-width: 400px) {
+  .swap-card { height: calc(var(--w) * 1.08); margin-top: calc(var(--w) * -.54); }
+  .swap-card h3 { font-size: 23px; }
+  .swap-card p { font-size: 12.5px; max-width: 66%; }
+  .swap-stage { height: calc(min(480px, 76vw) * 1.08 + 130px); }
+}
+
+@media (max-width: 860px) {
+  .f-col a { display: flex !important; }
+}
